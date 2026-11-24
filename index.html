@@ -2,117 +2,99 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ✏️ Thay Nguyễn Thế Đạt bằng tên thật của bạn -->
-  <title>Portfolio – Nguyễn Thế Đạt</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nguyễn Thế Đạt | Portfolio sinh viên CNTT</title>
+  <meta name="description" content="Portfolio của Nguyễn Thế Đạt, sinh viên Công nghệ thông tin, Đại học Đại Nam.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="site-header">
+    <a class="logo" href="#top">Thế Đạt</a>
+    <nav aria-label="Điều hướng chính">
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#ky-nang">Kỹ năng</a>
+      <a href="#du-an">Dự án</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+  </header>
 
-  <!-- ===== PHẦN 1: NAVIGATION =====
-       Câu 1: Dùng đúng thẻ ngữ nghĩa cho thanh điều hướng -->
-  <nav class="nav">
-    <div class="nav__container">
-      <a href="#" class="nav__logo">Nguyễn Thế Đạt</a>
-      <ul class="nav__menu">
-        <li><a href="#gioi-thieu">Giới thiệu</a></li>
-        <li><a href="#ky-nang">Kỹ năng</a></li>
-        <li><a href="#du-an">Dự án</a></li>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="hero-role">Sinh viên Công nghệ thông tin, Đại học Đại Nam</p>
+        <h1>Nguyễn Thế Đạt</h1>
+        <p class="hero-lead">Mình đang học làm web và quản lý mã nguồn với Git. Trang này là nơi mình tập hợp những gì đã học và đã làm.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#du-an">Xem dự án</a>
+          <a class="btn btn-ghost" href="mailto:nthedat39@gmail.com">Gửi email</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="avatar.png" alt="Ảnh chân dung Nguyễn Thế Đạt" width="542" height="712">
+      </figure>
+    </section>
+
+    <section id="gioi-thieu" class="section">
+      <h2>Giới thiệu</h2>
+      <div class="about">
+        <p>Mình là Đạt, quê Hà Nội, hiện là sinh viên ngành Công nghệ thông tin tại Đại học Đại Nam. Mình bắt đầu từ việc dựng trang web bằng HTML và CSS, rồi dùng Git và GitHub để lưu lại từng phiên bản bài làm.</p>
+        <p>Ngoài giờ học, mình thích chơi game, nghe nhạc và đi du lịch.</p>
+      </div>
+    </section>
+
+    <section id="ky-nang" class="section">
+      <h2>Kỹ năng</h2>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Web</h3>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Giao diện responsive</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Công cụ</h3>
+          <ul>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>VPN</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="du-an" class="section">
+      <h2>Dự án</h2>
+      <div class="projects">
+        <article class="project">
+          <h3>Portfolio cá nhân</h3>
+          <p>Trang giới thiệu bản thân viết bằng HTML5 và CSS3, hiển thị tốt trên điện thoại lẫn máy tính, đăng tải qua GitHub.</p>
+          <p class="project-tags">HTML5, CSS3, GitHub</p>
+          <a href="https://github.com/nthedat39-maker/K20_Portfolio_CNTT20_04" target="_blank" rel="noopener">Xem mã nguồn trên GitHub</a>
+        </article>
+        <!-- Thêm dự án mới: sao chép nguyên khối <article> ở trên, đổi tên, mô tả và link. -->
+        <article class="project project-empty">
+          <h3>Dự án tiếp theo</h3>
+          <p>Đang cập nhật. Các bài thực hành và dự án mới sẽ được thêm vào đây.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="lien-he" class="section">
+      <h2>Liên hệ</h2>
+      <ul class="contact">
+        <li><span>Email</span><a href="mailto:nthedat39@gmail.com">nthedat39@gmail.com</a></li>
+        <li><span>GitHub</span><a href="https://github.com/nthedat39-maker" target="_blank" rel="noopener">github.com/nthedat39-maker</a></li>
       </ul>
-    </div>
-  </nav>
-
-  <!-- ===== PHẦN 2: NỘI DUNG CHÍNH =====
-       Câu 2: Bọc toàn bộ nội dung chính -->
-  <main>
-
-    <!-- --- Hero --- -->
-    <!-- Câu 3: Thẻ chia phần logic -->
-    <section id="gioi-thieu" class="hero">
-      <h1>Xin chào, tôi là <span class="hero__name">Nguyễn Thế Đạt</span></h1>
-      <p class="hero__desc">Sinh viên ngành CNTT – Đại học Đại Nam | Quê: Hà Nội</p>
-      <a href="#du-an" class="btn">Xem dự án của tôi</a>
     </section>
-
-    <!-- --- Giới thiệu bản thân --- -->
-    <section class="about">
-      <h2 class="section-title">Về tôi</h2>
-      <div class="about__content">
-        <p class="about__text">Tôi là một người chăm chỉ, chịu khó tiếp thu và luôn có tinh thần cầu tiến. Ngoài thời gian học, tôi thích chơi game, nghe nhạc và đi du lịch để mở rộng hiểu biết. Mục tiêu của tôi là trở thành lập trình viên web chuyên nghiệp.</p>
-        <ul class="about__info">
-          <li><strong>Họ tên:</strong> Nguyễn Thế Đạt</li>
-          <li><strong>MSSV:</strong> 2071020223</li>
-          <li><strong>Quê quán:</strong> Hà Nội</li>
-          <li><strong>Sở thích:</strong> Chơi game, nghe nhạc, du lịch</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- --- Skills --- -->
-    <section id="ky-nang" class="skills">
-      <h2 class="section-title">Kỹ năng</h2>
-      <div class="skills__grid">
-        <div class="skill-card">
-          <span class="skill-card__icon">🔧</span>
-          <h3>Git / GitHub</h3>
-          <p>Quản lý mã nguồn, tạo nhánh, commit và làm việc nhóm qua GitHub.</p>
-        </div>
-        <div class="skill-card">
-          <span class="skill-card__icon">🎨</span>
-          <h3>HTML / CSS</h3>
-          <p>Thành thạo HTML5 ngữ nghĩa, CSS3, Flexbox, Grid và xây dựng giao diện responsive.</p>
-        </div>
-        <div class="skill-card">
-          <span class="skill-card__icon">🔒</span>
-          <h3>VPN</h3>
-          <p>Biết cấu hình và sử dụng VPN để kết nối mạng an toàn, truy cập tài nguyên từ xa.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- --- Projects --- -->
-    <section id="du-an" class="projects">
-      <h2 class="section-title">Dự án</h2>
-      <div class="projects__grid">
-
-        <!-- Câu 4: Thẻ cho mỗi project card -->
-        <article class="card">
-          <img src="assets/portfolio.svg"
-               alt="Ảnh minh họa dự án 1" class="card__img">
-          <div class="card__body">
-            <h3>Portfolio cá nhân</h3>
-            <p>Trang giới thiệu bản thân bằng HTML5 ngữ nghĩa, CSS Grid/Flexbox và responsive 3 kích thước (bài Lab 4 môn FIT4014).</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="assets/hanoi-travel.svg"
-               alt="Ảnh minh họa dự án 2" class="card__img">
-          <div class="card__body">
-            <h3>Website giới thiệu du lịch Hà Nội</h3>
-            <p>Trang tĩnh giới thiệu các điểm tham quan nổi tiếng ở Hà Nội, bố cục dạng thẻ, hiển thị tốt trên điện thoại.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="assets/games.svg"
-               alt="Ảnh minh họa dự án 3" class="card__img">
-          <div class="card__body">
-            <h3>Trang tổng hợp game yêu thích</h3>
-            <p>Danh sách các tựa game tôi thích kèm ảnh và mô tả ngắn, trình bày bằng lưới tự động chia cột.</p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
   </main>
 
-  <!-- ===== PHẦN 3: FOOTER =====
-       Câu 5: Thẻ chân trang -->
-  <footer class="footer">
-    <p>&copy; 2025 Nguyễn Thế Đạt – 2071020223 – FIT4014 Đại học Đại Nam</p>
+  <footer class="site-footer">
+    <p>&copy; 2026 Nguyễn Thế Đạt. Đại học Đại Nam.</p>
   </footer>
-
 </body>
 </html>
