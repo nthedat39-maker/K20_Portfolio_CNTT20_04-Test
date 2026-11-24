@@ -2,99 +2,470 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nguyễn Thế Đạt | Portfolio sinh viên CNTT</title>
-  <meta name="description" content="Portfolio của Nguyễn Thế Đạt, sinh viên Công nghệ thông tin, Đại học Đại Nam.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – Nguyễn Thế Đạt</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --bg-light: #f8fafc;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    /* ===== PHẦN 1: NAVIGATION ===== */
+    .nav {
+      background-color: var(--white);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav__container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav__logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav__menu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav__menu a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav__menu a:hover {
+      color: var(--primary);
+    }
+
+    /* ===== PHẦN 2: NỘI DUNG CHÍNH ===== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--secondary);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      margin: 0.6rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-radius: 16px;
+      margin-top: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero__name {
+      color: var(--primary);
+    }
+
+    .hero__desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* --- About --- */
+    .about__content {
+      background-color: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about__text {
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .about__info {
+      list-style: none;
+      background-color: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .about__info li {
+      margin-bottom: 0.75rem;
+      font-size: 0.98rem;
+    }
+
+    .about__info li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Skills --- */
+    .skills__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .skill-card {
+      background-color: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .skill-card__icon {
+      font-size: 2.5rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1.25rem;
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* --- Projects --- */
+    .projects__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card__img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background-color: #e2e8f0;
+    }
+
+    .card__body {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card__body h3 {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-bottom: 0.65rem;
+    }
+
+    .card__body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ===== PHẦN 3: FOOTER ===== */
+    .footer {
+      background-color: var(--secondary);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+    }
+
+    /* ===== RESPONSIVE 3 KÍCH THƯỚC ===== */
+    /* Tablet (<= 900px) */
+    @media (max-width: 900px) {
+      .about__content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .skills__grid,
+      .projects__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile (<= 600px) */
+    @media (max-width: 600px) {
+      .nav__container {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .nav__menu {
+        gap: 1.25rem;
+      }
+
+      .hero {
+        padding: 4rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .skills__grid,
+      .projects__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#top">Thế Đạt</a>
-    <nav aria-label="Điều hướng chính">
-      <a href="#gioi-thieu">Giới thiệu</a>
-      <a href="#ky-nang">Kỹ năng</a>
-      <a href="#du-an">Dự án</a>
-      <a href="#lien-he">Liên hệ</a>
-    </nav>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-text">
-        <p class="hero-role">Sinh viên Công nghệ thông tin, Đại học Đại Nam</p>
-        <h1>Nguyễn Thế Đạt</h1>
-        <p class="hero-lead">Mình đang học làm web và quản lý mã nguồn với Git. Trang này là nơi mình tập hợp những gì đã học và đã làm.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#du-an">Xem dự án</a>
-          <a class="btn btn-ghost" href="mailto:nthedat39@gmail.com">Gửi email</a>
-        </div>
-      </div>
-      <figure class="hero-photo">
-        <img src="avatar.png" alt="Ảnh chân dung Nguyễn Thế Đạt" width="542" height="712">
-      </figure>
-    </section>
-
-    <section id="gioi-thieu" class="section">
-      <h2>Giới thiệu</h2>
-      <div class="about">
-        <p>Mình là Đạt, quê Hà Nội, hiện là sinh viên ngành Công nghệ thông tin tại Đại học Đại Nam. Mình bắt đầu từ việc dựng trang web bằng HTML và CSS, rồi dùng Git và GitHub để lưu lại từng phiên bản bài làm.</p>
-        <p>Ngoài giờ học, mình thích chơi game, nghe nhạc và đi du lịch.</p>
-      </div>
-    </section>
-
-    <section id="ky-nang" class="section">
-      <h2>Kỹ năng</h2>
-      <div class="skills">
-        <div class="skill-group">
-          <h3>Web</h3>
-          <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>Giao diện responsive</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Công cụ</h3>
-          <ul>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>VPN</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="du-an" class="section">
-      <h2>Dự án</h2>
-      <div class="projects">
-        <article class="project">
-          <h3>Portfolio cá nhân</h3>
-          <p>Trang giới thiệu bản thân viết bằng HTML5 và CSS3, hiển thị tốt trên điện thoại lẫn máy tính, đăng tải qua GitHub.</p>
-          <p class="project-tags">HTML5, CSS3, GitHub</p>
-          <a href="https://github.com/nthedat39-maker/K20_Portfolio_CNTT20_04" target="_blank" rel="noopener">Xem mã nguồn trên GitHub</a>
-        </article>
-        <!-- Thêm dự án mới: sao chép nguyên khối <article> ở trên, đổi tên, mô tả và link. -->
-        <article class="project project-empty">
-          <h3>Dự án tiếp theo</h3>
-          <p>Đang cập nhật. Các bài thực hành và dự án mới sẽ được thêm vào đây.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="lien-he" class="section">
-      <h2>Liên hệ</h2>
-      <ul class="contact">
-        <li><span>Email</span><a href="mailto:nthedat39@gmail.com">nthedat39@gmail.com</a></li>
-        <li><span>GitHub</span><a href="https://github.com/nthedat39-maker" target="_blank" rel="noopener">github.com/nthedat39-maker</a></li>
+  <!-- ===== PHẦN 1: NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav__container">
+      <a href="#" class="nav__logo">Nguyễn Thế Đạt</a>
+      <ul class="nav__menu">
+        <li><a href="#gioi-thieu">Giới thiệu</a></li>
+        <li><a href="#ky-nang">Kỹ năng</a></li>
+        <li><a href="#du-an">Dự án</a></li>
       </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PHẦN 2: NỘI DUNG CHÍNH ===== -->
+  <main>
+
+    <!-- --- Hero --- -->
+    <section id="gioi-thieu" class="hero">
+      <h1>Xin chào, tôi là <span class="hero__name">Nguyễn Thế Đạt</span></h1>
+      <p class="hero__desc">Sinh viên ngành CNTT – Đại học Đại Nam | Quê: Hà Nội</p>
+      <a href="#du-an" class="btn">Xem dự án của tôi</a>
     </section>
+
+    <!-- --- Giới thiệu bản thân --- -->
+    <section class="about">
+      <h2 class="section-title">Về tôi</h2>
+      <div class="about__content">
+        <p class="about__text">Tôi là một người chăm chỉ, chịu khó tiếp thu và luôn có tinh thần cầu tiến. Ngoài thời gian học, tôi thích chơi game, nghe nhạc và đi du lịch để mở rộng hiểu biết. Mục tiêu của tôi là trở thành lập trình viên web chuyên nghiệp.</p>
+        <ul class="about__info">
+          <li><strong>Họ tên:</strong> Nguyễn Thế Đạt</li>
+          <li><strong>MSSV:</strong> 2071020223</li>
+          <li><strong>Quê quán:</strong> Hà Nội</li>
+          <li><strong>Sở thích:</strong> Chơi game, nghe nhạc, du lịch</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- --- Skills --- -->
+    <section id="ky-nang" class="skills">
+      <h2 class="section-title">Kỹ năng</h2>
+      <div class="skills__grid">
+        <div class="skill-card">
+          <span class="skill-card__icon">🔧</span>
+          <h3>Git / GitHub</h3>
+          <p>Quản lý mã nguồn, tạo nhánh, commit và làm việc nhóm qua GitHub.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card__icon">🎨</span>
+          <h3>HTML / CSS</h3>
+          <p>Thành thạo HTML5 ngữ nghĩa, CSS3, Flexbox, Grid và xây dựng giao diện responsive.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card__icon">🔒</span>
+          <h3>VPN</h3>
+          <p>Biết cấu hình và sử dụng VPN để kết nối mạng an toàn, truy cập tài nguyên từ xa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- Projects --- -->
+    <section id="du-an" class="projects">
+      <h2 class="section-title">Dự án</h2>
+      <div class="projects__grid">
+
+        <article class="card">
+          <svg class="card__img" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ảnh minh họa dự án 1">
+            <defs>
+              <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb"/>
+                <stop offset="100%" stop-color="#1e40af"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="200" fill="url(#bg1)"/>
+            <rect x="60" y="30" width="280" height="140" rx="10" fill="#ffffff" opacity="0.95"/>
+            <circle cx="80" cy="48" r="5" fill="#ef4444"/>
+            <circle cx="96" cy="48" r="5" fill="#f59e0b"/>
+            <circle cx="112" cy="48" r="5" fill="#10b981"/>
+            <rect x="80" y="70" width="90" height="14" rx="4" fill="#2563eb"/>
+            <rect x="80" y="94" width="150" height="10" rx="3" fill="#94a3b8"/>
+            <rect x="80" y="112" width="120" height="10" rx="3" fill="#cbd5e1"/>
+            <circle cx="285" cy="105" r="32" fill="#dbeafe"/>
+            <text x="285" y="112" font-size="22" font-weight="bold" fill="#2563eb" text-anchor="middle" font-family="sans-serif">&lt;/&gt;</text>
+          </svg>
+          <div class="card__body">
+            <h3>Portfolio cá nhân</h3>
+            <p>Trang giới thiệu bản thân bằng HTML5 ngữ nghĩa, CSS Grid/Flexbox và responsive 3 kích thước (bài Lab 4 môn FIT4014).</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <svg class="card__img" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ảnh minh họa dự án 2">
+            <defs>
+              <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0d9488"/>
+                <stop offset="100%" stop-color="#0f766e"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="200" fill="url(#bg2)"/>
+            <circle cx="310" cy="55" r="24" fill="#fde047" opacity="0.9"/>
+            <path d="M0 155 Q100 135 200 155 T400 150 L400 200 L0 200 Z" fill="#115e59"/>
+            <rect x="145" y="115" width="110" height="12" rx="3" fill="#dc2626"/>
+            <polygon points="135,115 265,115 250,98 150,98" fill="#b91c1c"/>
+            <rect x="160" y="85" width="80" height="13" rx="2" fill="#fef2f2"/>
+            <polygon points="150,85 250,85 235,68 165,68" fill="#dc2626"/>
+            <rect x="175" y="55" width="50" height="13" rx="2" fill="#fef2f2"/>
+            <polygon points="168,55 232,55 200,35" fill="#991b1b"/>
+            <rect x="160" y="127" width="10" height="25" fill="#7f1d1d"/>
+            <rect x="230" y="127" width="10" height="25" fill="#7f1d1d"/>
+          </svg>
+          <div class="card__body">
+            <h3>Website giới thiệu du lịch Hà Nội</h3>
+            <p>Trang tĩnh giới thiệu các điểm tham quan nổi tiếng ở Hà Nội, bố cục dạng thẻ, hiển thị tốt trên điện thoại.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <svg class="card__img" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ảnh minh họa dự án 3">
+            <defs>
+              <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7c3aed"/>
+                <stop offset="100%" stop-color="#4f46e5"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="200" fill="url(#bg3)"/>
+            <rect x="110" y="55" width="180" height="90" rx="45" fill="#1e1b4b"/>
+            <rect x="142" y="92" width="32" height="12" rx="3" fill="#a78bfa"/>
+            <rect x="152" y="82" width="12" height="32" rx="3" fill="#a78bfa"/>
+            <circle cx="242" cy="88" r="7" fill="#f43f5e"/>
+            <circle cx="258" cy="100" r="7" fill="#38bdf8"/>
+            <circle cx="226" cy="100" r="7" fill="#facc15"/>
+            <circle cx="242" cy="112" r="7" fill="#4ade80"/>
+          </svg>
+          <div class="card__body">
+            <h3>Trang tổng hợp game yêu thích</h3>
+            <p>Danh sách các tựa game tôi thích kèm ảnh và mô tả ngắn, trình bày bằng lưới tự động chia cột.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Nguyễn Thế Đạt. Đại học Đại Nam.</p>
+  <!-- ===== PHẦN 3: FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2025 Nguyễn Thế Đạt – 2071020223 – FIT4014 Đại học Đại Nam</p>
   </footer>
+
 </body>
 </html>
